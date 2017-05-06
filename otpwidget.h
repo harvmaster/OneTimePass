@@ -20,6 +20,8 @@ public:
 
     QString totpGenerate();
 
+    void updateWidget();
+
 private:
     Ui::OTPWidget *ui;
 

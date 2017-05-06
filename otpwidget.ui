@@ -31,11 +31,14 @@
    </item>
    <item row="0" column="1" rowspan="2">
     <widget class="QProgressBar" name="timerBar">
+     <property name="maximum">
+      <number>30</number>
+     </property>
      <property name="value">
-      <number>24</number>
+      <number>27</number>
      </property>
      <property name="textVisible">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -48,7 +51,8 @@
       <string>...</string>
      </property>
      <property name="icon">
-      <iconset theme="edit"/>
+      <iconset theme="edit">
+       <normaloff>.</normaloff>.</iconset>
      </property>
      <property name="toolButtonStyle">
       <enum>Qt::ToolButtonIconOnly</enum>
@@ -76,7 +80,8 @@
       <string>...</string>
      </property>
      <property name="icon">
-      <iconset theme="remove"/>
+      <iconset theme="remove">
+       <normaloff>.</normaloff>.</iconset>
      </property>
     </widget>
    </item>

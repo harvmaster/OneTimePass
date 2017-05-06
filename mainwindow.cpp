@@ -6,12 +6,19 @@
 
 #include <oath.h>
 
+#include <QDebug>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     oath_init();
+
+    // Create timer that triggers the OTP Widgets to update every second
+    m_timer = new QTimer(this);
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(updateOTPWidgets()));
+    m_timer->start(1000);
 }
 
 MainWindow::~MainWindow()
@@ -34,4 +41,11 @@ void MainWindow::on_pushButton_clicked()
     }
 
     return;
+}
+
+void MainWindow::updateOTPWidgets()
+{
+    foreach (OTPWidget *otpWidget, ui->centralWidget->findChildren<OTPWidget*>()) {
+        otpWidget->updateWidget();
+    }
 }
